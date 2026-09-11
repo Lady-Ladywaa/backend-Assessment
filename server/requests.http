@@ -1,0 +1,58 @@
+### Base URL
+@baseUrl = http://localhost:3000
+
+### 1. Get all products
+GET {{baseUrl}}/products
+
+### 2. Search products by name (Query String)
+GET {{baseUrl}}/products?name=mouse
+
+### 3. Get single product by ID
+GET {{baseUrl}}/products/1
+
+### 4. Get product by non-existent ID (Returns 404)
+GET {{baseUrl}}/products/999
+
+### 5. Create a new product (POST)
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Mechanical Keyboard",
+  "price": 2500,
+  "quantity": 3
+}
+
+### 6. Create product with invalid payload (Returns 400)
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Incomplete Product"
+}
+
+### 7. Update an existing product (PUT)
+PUT {{baseUrl}}/products/1
+Content-Type: application/json
+
+{
+  "name": "RGB Mechanical Keyboard",
+  "price": 1500,
+  "quantity": 5
+}
+
+### 8. Update non-existent product (Returns 404)
+PUT {{baseUrl}}/products/999
+Content-Type: application/json
+
+{
+  "name": "Ghost Item",
+  "price": 100,
+  "quantity": 1
+}
+
+### 9. Delete a product (DELETE)
+DELETE {{baseUrl}}/products/2
+
+### 10. Delete non-existent product (Returns 404)
+DELETE {{baseUrl}}/products/999
